@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeKnowBots.Data\WeKnowBots.Data.csproj">
+      <Project>{e5532bfe-eb97-436e-ad53-ed6ae7075410}</Project>
+      <Name>WeKnowBots.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeKnowBots.Models\WeKnowBots.Models.csproj">
+      <Project>{9efe981f-ec15-475b-a0cc-cc267323ac95}</Project>
+      <Name>WeKnowBots.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

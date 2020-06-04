@@ -10,6 +10,7 @@ namespace WeKnowBots.Models
 {
     public class BotCreate
     {
+        [Display(Name = "Bot Id")]
         public int BotId { get; set; }
 
         [Required]

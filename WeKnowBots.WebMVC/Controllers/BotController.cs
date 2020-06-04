@@ -17,5 +17,16 @@ namespace WeKnowBots.WebMVC.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(BotCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }

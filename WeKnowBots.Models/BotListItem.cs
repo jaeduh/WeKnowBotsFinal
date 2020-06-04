@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeKnowBots.Data;
 
 namespace WeKnowBots.Models
 {
@@ -16,5 +17,6 @@ namespace WeKnowBots.Models
 
         [Display(Name = "Date Bot Used")]
         public string DateBotUsed { get; set; }
+        public BotType TypeOfBot { get; set; }
     }
 }
