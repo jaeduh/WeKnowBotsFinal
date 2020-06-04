@@ -43,5 +43,12 @@ namespace WeKnowBots.WebMVC.Controllers
             return View(model);
         }
 
+        public BotServices CreateBotService()
+        {
+            var id = Guid.Parse(User.Identity.GetUserId());
+            BotServices service = new BotServices(id);
+            return service;
+        }
+
     }
 }

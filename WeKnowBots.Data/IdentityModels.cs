@@ -32,6 +32,7 @@ namespace WeKnowBots.Data
             return new ApplicationDbContext();
         }
         public DbSet<Bot> Bots { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

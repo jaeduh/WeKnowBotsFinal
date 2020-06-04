@@ -12,28 +12,28 @@ namespace WeKnowBots.Services
     {
         private readonly Guid _userId;
 
-        public BotServices(Guid userId)
+        public UserServices(Guid userId)
         {
             _userId = userId;
         }
 
-    }
-    public bool CreateUser(UserCreate model)
-    {
-        var entity =
-            new User()
-            {
-                OwnerId = model.OwnerId,
-                UserName = model.UserName,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email
-            };
-        using (var ctx = new ApplicationDbContext())
+        public bool CreateUser(UserCreate model)
         {
-            ctx.Users.Add(entity);
+            var entity =
+                new User()
+                {
+                    OwnerId = model.OwnerId,
+                    UserName = model.UserName,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Email = model.Email
+                };
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Users.Add(entity);
 
-            return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 1;
+            }
         }
     }
 }
