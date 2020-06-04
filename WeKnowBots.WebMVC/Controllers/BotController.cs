@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNet.Identity;
+using System;
+using System.Web.Mvc;
 using WeKnowBots.Models;
+using WeKnowBots.Services;
 
 namespace WeKnowBots.WebMVC.Controllers
 {
@@ -9,7 +12,10 @@ namespace WeKnowBots.WebMVC.Controllers
         // GET: Bot
         public ActionResult Index()
         {
-            var model = new BotListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new BotServices(userId);
+            var model = service.GetAllBots();
+
             return View(model);
         }
 
@@ -22,11 +28,20 @@ namespace WeKnowBots.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BotCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateBotService();
+
+            if (service.CreateBot(model))
+            {
+                ViewBag.SaveResult = "Your bot has been created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Your could not be created.");
+
             return View(model);
         }
+
     }
 }

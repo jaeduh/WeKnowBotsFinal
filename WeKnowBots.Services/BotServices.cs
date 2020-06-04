@@ -34,7 +34,7 @@ namespace WeKnowBots.Services
             }
         }
 
-        public IEnumerable<BotListItem> GetAllBotss()
+        public IEnumerable<BotListItem> GetAllBots()
         {
             using (var ctx = new ApplicationDbContext())
             {

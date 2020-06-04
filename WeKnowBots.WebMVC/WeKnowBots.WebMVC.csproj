@@ -263,6 +263,10 @@
       <Project>{9EFE981F-EC15-475B-A0CC-CC267323AC95}</Project>
       <Name>WeKnowBots.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WeKnowBots.Services\WeKnowBots.Services.csproj">
+      <Project>{0481CA21-E936-4E28-A392-E28AA50CDF21}</Project>
+      <Name>WeKnowBots.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
