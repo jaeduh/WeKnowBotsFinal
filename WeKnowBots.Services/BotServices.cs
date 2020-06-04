@@ -56,5 +56,37 @@ namespace WeKnowBots.Services
                 return query.ToArray();
             }
         }
+
+        public bool DeleteBot(int botId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Bots
+                    .Single(e => e.BotId == botId);
+
+                ctx.Bots.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool UpdateBot(BotEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Bots
+                    .Single(e => e.BotId == model.BotId);
+
+                entity.BotName = model.BotName;
+
+                return ctx.SaveChanges() == 1;
+
+
+            }
+        }
     }
 }
