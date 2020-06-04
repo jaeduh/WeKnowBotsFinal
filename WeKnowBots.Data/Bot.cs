@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeKnowBots.Data
 {
+    public enum BotType { MultiEntry = 1, IncreasePurchaseQuantity, SkipLine }
     public class Bot
     {
         [Key]
@@ -17,6 +18,9 @@ namespace WeKnowBots.Data
 
         [Required]
         public string BotName { get; set; }
+
+        [Required]
+        public BotType TypeOfBot { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
